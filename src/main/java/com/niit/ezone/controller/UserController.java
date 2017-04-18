@@ -49,11 +49,12 @@ public class UserController {
 	
 		
 	@Transactional
-	@RequestMapping(value="/validatelogin",method=RequestMethod.POST)
+	@RequestMapping(value="/validatelogin")
 	public ModelAndView validation(@ModelAttribute User user, @RequestParam("id") String uid,@RequestParam("password")String psw)
 	{
-		ModelAndView mv;
+		
 		user = userDAO.validateLoginCredentials(uid, psw);
+		ModelAndView mv;		
 		if(user==null)
 		{
 			mv = new ModelAndView("/validatelogin","command",new User());
@@ -159,30 +160,6 @@ public class UserController {
 		return mv;
 	}
 
-	@Transactional
-	@RequestMapping("ulist")
-	public ModelAndView showUserListLogin()
-	{
-		ModelAndView mv = new ModelAndView("/ValidateReg","command",new User());
-		List<User> userList = fetchUserList();
-		user = userDAO.getUserById(logid);
-		mv.addObject("successList", userList);
-		mv.addObject("L", user);
-		session.removeAttribute("updateUser");
-		return mv;
-	}
-	@Transactional
-	@RequestMapping("ulist1")
-	public ModelAndView showUserListRegister()
-	{
-		ModelAndView mv = new ModelAndView("/ValidateReg","command",new User());
-		List<User> userList = fetchUserList();
-		user = userDAO.getUserById(regid);
-		mv.addObject("successList", userList);
-		mv.addObject("L", user);
-		session.removeAttribute("updateUser");
-		return mv;
-	}
 	public List<User> fetchUserList()
 	{
 		List<User> list = new ArrayList<User>(userDAO.getAllUsers());

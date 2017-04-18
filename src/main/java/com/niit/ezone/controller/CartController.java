@@ -57,9 +57,6 @@ public class CartController {
 	System.out.println(showcartlist);
 		mv.addObject("showcartlist", showcartlist );
 		mv.addObject("myCart",myCart);
-		//int total = cartDAO.getProductTotal(uid);
-		//System.out.println(total);
-		//mv.addObject("total", total);
 		return mv;
 	}
 	
@@ -132,7 +129,7 @@ public class CartController {
 	@RequestMapping(value="/deletecart",method=RequestMethod.GET)
 	public ModelAndView validateDeleteCart(@RequestParam("id")int id)
 	{
-		ModelAndView mv = new ModelAndView("/MyCart");
+		ModelAndView mv = new ModelAndView("redirect:/MyCart");
 		MyCart myCart = cartDAO.getMyCartById(id);
 		cartDAO.delete(myCart);
 		return mv;

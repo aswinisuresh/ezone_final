@@ -70,7 +70,6 @@ public class CategoryController {
 	}
 	
 	
-	
 	@Transactional
 	@RequestMapping("/selDeleteCategory")
 	public ModelAndView deleteCategoryFunction(Map<String, Object> map)

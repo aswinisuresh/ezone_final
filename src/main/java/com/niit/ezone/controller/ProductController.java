@@ -81,19 +81,6 @@ public class ProductController {
 		return mv;
 	}
 	
-
-	
-/*	@Transactional
-	@RequestMapping(value="/validateAddProduct", method=RequestMethod.POST)
-	public ModelAndView showAddProductPage(@ModelAttribute Product product)
-	{	
-		System.out.println("in controller add");
-		productDAO.saveProduct(product);
-		ModelAndView mv= new ModelAndView("/Admin");
-		mv.addObject("success","productadded");
-		return mv;
-	}*/
-	
 	@Transactional
 	@RequestMapping("/selEditProduct")
 	public ModelAndView showProductEdit(Map<String, Object> map)

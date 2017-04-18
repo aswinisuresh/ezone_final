@@ -20,7 +20,7 @@
  <script type="text/javascript" src="js/valid.js"></script>
 <%-- <form class="form-horizontal" action="Login"> --%>
 
-<form action="validatelogin" name="Login" method ="post">
+<form action="validatelogin" name="Login" >
  <center>${compareT}</center>
 <center>${compareF}</center>
 

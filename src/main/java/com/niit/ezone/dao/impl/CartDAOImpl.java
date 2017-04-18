@@ -67,13 +67,7 @@ public class CartDAOImpl  implements CartDAO
 	public int getProductSum(int prodcost, int prodquan) {
 		return prodcost*prodquan;
 	}
-/*public int getProductTotal(String uid)
-	{
-		String hql = "select isnull(sum(sumprice),0) from MyCart where user_id='"+uid+"'";
-		String result = sessionFactory.getCurrentSession().createSQLQuery(hql).uniqueResult().toString();
-		int total = Integer.parseInt(result);
-		return total;
-	}*/
+
 	
 
 }

@@ -34,18 +34,14 @@ public class HomeController {
 	@Autowired
 	UserController userController;
 	
-	public HomeController()
-	{
-		log.debug("Controller");
-	}
-	
-	@RequestMapping("/")
+		
+	/*@RequestMapping("/")
 	public ModelAndView showHome()
 	{
 		ModelAndView mv = new ModelAndView("/Home");		
 		return mv;
 		
-	}
+	}*/
 	
 
 	@RequestMapping("/Home")
@@ -70,7 +66,6 @@ public class HomeController {
 	{
 		log.debug("Clicked on Registraion link");
 		ModelAndView mv = new ModelAndView("/Registration","command", new User());
-		/*mv.addObject("isUserClickedRegister","true");*/
 		return mv;
 	}
 	

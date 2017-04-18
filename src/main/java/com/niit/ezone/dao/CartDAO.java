@@ -19,6 +19,4 @@ public List<MyCart> getAllCartDetails(String uid);//
 	
 	public int getProductSum(int prodcost ,int prodquan);
 	
-	//public int getProductTotal(String uid);
-	
 	}

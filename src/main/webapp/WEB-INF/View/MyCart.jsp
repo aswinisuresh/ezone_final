@@ -22,6 +22,7 @@
        <th> DATE ADDED</th>
        <th> QUANTITY</th>
        <th> SUM</th>
+       <th>REMOVE FROM CART</th>
       </tr>
     </thead>
   <c:forEach var="myCart" items="${showcartlist}">
@@ -38,15 +39,11 @@
   	<button type="submit" class="btn btn-default" style="color:#FF3349;">
   	<span class="glyphicon glyphicon-minus"></span></button></a></td>
   	<td>${myCart.sum}</td>
-	<td><a href="deletecart?id=${myCart.id}"><button type="submit" class="btn btn-default" style="color:#FF3349;"><span class="glyphicon glyphicon-remove"></span></button></a></td>
+	<td><a href="deletecart?id=${myCart.cartid}"><button type="submit" class="btn btn-default" style="color:#FF3349;">Delete<span class="glyphicon glyphicon-remove"></span></button></a></td>
  	</tr>
   	</tbody>
   </c:forEach>
-  <tr>
-  	<td colspan="6" Style="text-align:right">Total</td>
-  	<td>${carttotal}</td>
-  	</tr>
-  	
+	
   </table>
   </div>
   </div>

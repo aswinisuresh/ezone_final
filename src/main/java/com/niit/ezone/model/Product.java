@@ -14,9 +14,9 @@ import org.springframework.web.multipart.MultipartFile;
 @Component
 public class Product {
 	@Id
-	//@GeneratedValue(strategy = GenerationType.AUTO)
-	private int prodid;	//pid
-	private String prodname; //pname
+	
+	private int prodid;
+	private String prodname; 
 	private String proddesc;
 	private int suppid;
 	private int catid;
@@ -25,15 +25,6 @@ public class Product {
 	
 	@Transient
 	private MultipartFile pimage;
-	
-/*	@ManyToOne
-	@JoinColumn(name = "suppid", nullable = false, updatable = false, insertable = false)
-	private Supplier supplier;
-	
-	@ManyToOne
-	@JoinColumn(name = "catid", nullable = false, updatable = false, insertable = false)
-	private Category category;	*/
-	
 	
 	public MultipartFile getPimage() {
 		return pimage;
