@@ -20,7 +20,7 @@
  <script type="text/javascript" src="js/valid.js"></script>
 <%-- <form class="form-horizontal" action="Login"> --%>
 
-<form action="validateLogin" name="Login" method ="post">
+<form action="validatelogin" name="Login" method ="post">
  <center>${compareT}</center>
 <center>${compareF}</center>
 
@@ -32,22 +32,25 @@
  <c:if test="${empty UID}">
  <a href="Login">Login</a>
 </c:if> --%>
+
 <div class="container">
 <div class="row">
-<div class="col-xs-6 col-sm-6 col-md-6">
-<div class="form-login">
+<div class="col-xs-8 col-sm-8 col-md-8">
+<div class="form-login"> 
 
- <div class="panel panel-primary" style="width:750px;margin:0px auto">
+ <div class="panel panel-primary" style="width:850px;margin:0px auto">
 
+        
+        
               <div class="panel-heading">LOGIN</div>
               <div class="panel-body">
 
  <div class="form-group">
  
  
- <input type="text" name="id" id="id" class="form-control input-sm chat-input" placeholder="id"/>
+ <input type="text" name="id" id="id" required="required" class="form-control input-sm chat-input" placeholder="Enter user id"/>
 <br>
- <input type="text" name="password" id="password" class="form-control input-sm chat-input" placeholder="password"/>
+ <input type="password" name="password" id="password" required="required" class="form-control input-sm chat-input" placeholder="Enter Password"/>
 <br>
 <div class="wrapper">
 <span class="group-btn">
@@ -59,7 +62,10 @@
 </div>
 </div>
 </div>
-</form>
+</form> 
+
+
+
 <jsp:include page="CommonFooter.jsp"></jsp:include> 
 </body>
 

@@ -11,7 +11,32 @@
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/valid.js"></script>
 <title>Insert title here</title>
-<jsp:include page="CommonHeader.jsp"></jsp:include> 
+<jsp:include page="CommonHeader.jsp"></jsp:include>
+<script>
+function validateForm()
+{
+    if(document.frm.suppid.value=="")
+    {
+      alert("Supplier id should not be left blank");
+      document.frm.suppid.focus();
+      return false;
+    }
+    else if(document.frm.suppname.value=="")
+    {
+      alert("Supplier name should not be left blank");
+      document.frm.suppname.focus();
+      return false;
+    }
+    else if(document.frm.suppaddress.value=="")
+    {
+      alert("Supplier address should not be left blank");
+      document.frm.suppname.focus();
+      return false;
+    }
+}
+
+
+</script> 
 </head>
 <body>
 <div class="container">
@@ -20,7 +45,7 @@
 <div class="panel-body">
   <div class="row">
   	  	
-  	<form:form action="validateAddSupplier" method ="post">
+  	<form:form name="frm" action="validateAddSupplier"  onSubmit="return validateForm()" method ="post">
   	
   	<div class="col-xs-6">
     <div class="input-group">

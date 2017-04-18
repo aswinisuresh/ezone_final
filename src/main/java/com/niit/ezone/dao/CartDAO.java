@@ -1,24 +1,24 @@
-/*package com.niit.ezone.dao;
+package com.niit.ezone.dao;
 
 import java.util.List;
-
-import com.niit.ezone.model.Cart;
+import com.niit.ezone.model.MyCart;
 
 public interface CartDAO {
 	
-	public List<Cart> getAllCart();
-	
-	public Cart get(String id);
-	
-	public boolean saveCart(Cart cart);
-	
-	public boolean deleteCart(Cart cart);
-	
-	public boolean deleteCart (String id);
-	
-	public boolean updateCart(Cart cart);
-	
-	public Long getCartById(String id);
+public List<MyCart> getAllCartDetails(String uid);//
 
-}
-*/
+	public boolean save(MyCart myCart);
+	
+	public boolean update(MyCart myCart);
+	
+	public boolean delete(MyCart myCart);
+	
+	public MyCart getMyCartById(int cartid);
+	
+	public MyCart getMyCartByName(String prodname);
+	
+	public int getProductSum(int prodcost ,int prodquan);
+	
+	//public int getProductTotal(String uid);
+	
+	}

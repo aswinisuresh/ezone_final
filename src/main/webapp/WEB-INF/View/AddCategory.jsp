@@ -12,6 +12,32 @@
 <script type="text/javascript" src="js/valid.js"></script>
 <title>Insert title here</title>
 <jsp:include page="CommonHeader.jsp"></jsp:include> 
+<script>
+function validateForm()
+{
+    if(document.frm.catid.value=="")
+    {
+      alert("Category id should not be left blank");
+      document.frm.catid.focus();
+      return false;
+    }
+    else if(document.frm.catname.value=="")
+    {
+      alert("Category name should not be left blank");
+      document.frm.catname.focus();
+      return false;
+         
+      
+    }
+    else if(document.frm.catdesc.value=="")
+    {
+      alert("Category description should not be left blank");
+      document.frm.catdesc.focus();
+      return false;
+    }
+}
+</script>
+
 </head>
 <body>
 <div class="container">
@@ -20,7 +46,7 @@
 <div class="panel-body">
   <div class="row">
   	  	
-  	<form:form action="validateAddCategory" method ="post">
+  	<form:form name="frm" action="validateAddCategory" onSubmit="return validateForm()" method ="post">
   	
   	<div class="col-xs-6">
     <div class="input-group">

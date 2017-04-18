@@ -51,8 +51,6 @@ table, th, td {
         </tbody>
   </table>
 </div>
-
-
   
  <form action="deleteProduct">
 <h2>Enter Product ID : </h2>

@@ -1,10 +1,8 @@
 C:\DevOps software\Mars-workspace\FinalDevProject\ezone\src\main\java\com\niit\ezone\dao\CategoryDAO.java
 C:\DevOps software\Mars-workspace\FinalDevProject\ezone\src\main\java\com\niit\ezone\dao\impl\ProductDAOImpl.java
 C:\DevOps software\Mars-workspace\FinalDevProject\ezone\src\main\java\com\niit\ezone\dao\impl\CategoryDAOImpl.java
-C:\DevOps software\Mars-workspace\FinalDevProject\ezone\src\main\java\com\niit\ezone\model\Cart.java
 C:\DevOps software\Mars-workspace\FinalDevProject\ezone\src\main\java\com\niit\ezone\controller\SupplierController.java
 C:\DevOps software\Mars-workspace\FinalDevProject\ezone\src\main\java\com\niit\ezone\dao\impl\SupplierDAOImpl.java
-C:\DevOps software\Mars-workspace\FinalDevProject\ezone\src\main\java\com\niit\ezone\controller\AdminController.java
 C:\DevOps software\Mars-workspace\FinalDevProject\ezone\src\main\java\com\niit\ezone\model\Supplier.java
 C:\DevOps software\Mars-workspace\FinalDevProject\ezone\src\main\java\com\niit\ezone\dao\ProductDAO.java
 C:\DevOps software\Mars-workspace\FinalDevProject\ezone\src\main\java\com\niit\ezone\controller\UserController.java
@@ -16,6 +14,8 @@ C:\DevOps software\Mars-workspace\FinalDevProject\ezone\src\main\java\com\niit\e
 C:\DevOps software\Mars-workspace\FinalDevProject\ezone\src\main\java\com\niit\ezone\model\User.java
 C:\DevOps software\Mars-workspace\FinalDevProject\ezone\src\main\java\com\niit\ezone\dao\impl\CartDAOImpl.java
 C:\DevOps software\Mars-workspace\FinalDevProject\ezone\src\main\java\com\niit\ezone\model\Product.java
+C:\DevOps software\Mars-workspace\FinalDevProject\ezone\src\main\java\com\niit\ezone\model\MyCart.java
+C:\DevOps software\Mars-workspace\FinalDevProject\ezone\src\main\java\com\niit\ezone\model\Address.java
 C:\DevOps software\Mars-workspace\FinalDevProject\ezone\src\main\java\com\niit\ezone\dao\UserDAO.java
 C:\DevOps software\Mars-workspace\FinalDevProject\ezone\src\main\java\com\niit\ezone\dao\impl\UserDAOImpl.java
 C:\DevOps software\Mars-workspace\FinalDevProject\ezone\src\main\java\com\niit\ezone\controller\ProductController.java

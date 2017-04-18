@@ -1,9 +1,14 @@
 package com.niit.ezone.model;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
 import org.springframework.stereotype.Component;
 
 @Entity
@@ -11,7 +16,18 @@ import org.springframework.stereotype.Component;
 public class Supplier {
 @Id
 //@GeneratedValue(strategy = GenerationType.AUTO)
- private int suppid;
+
+/*@OneToMany(mappedBy="supplier",fetch = FetchType.EAGER)
+private Set<Product> products;
+*/
+private int suppid;
+ 
+/*public Set<Product> getProducts() {
+	return products;
+}
+public void setProducts(Set<Product> products) {
+	this.products = products;
+}*/
 private String suppname;
 private String suppaddress;
 public int getSuppid() {
@@ -33,6 +49,10 @@ public void setSuppaddress(String suppaddress) {
 	this.suppaddress = suppaddress;
 }
 
-
+/*@Override
+public String toString() {
+	return "Supplier [supplierID=" + suppid + ", supplierName=" + suppname + ", supplieraddress="
+			+ suppaddress + "]";
+}*/
 
 }

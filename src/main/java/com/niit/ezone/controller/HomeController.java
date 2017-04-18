@@ -14,10 +14,14 @@ import com.niit.ezone.dao.UserDAO;
 import com.niit.ezone.model.Product;
 import com.niit.ezone.model.User;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Controller
 public class HomeController {
+	
+	private static final Logger log=LoggerFactory.getLogger(HomeController.class);
 	@Autowired
 	private HttpSession session;
 	
@@ -32,10 +36,9 @@ public class HomeController {
 	
 	public HomeController()
 	{
-		System.out.println("Controller");
+		log.debug("Controller");
 	}
 	
-
 	@RequestMapping("/")
 	public ModelAndView showHome()
 	{
@@ -65,7 +68,7 @@ public class HomeController {
 	@RequestMapping("/Registration")
 	public ModelAndView showRegistrationPage()
 	{
-		System.out.println("Clicked on Registraion link");
+		log.debug("Clicked on Registraion link");
 		ModelAndView mv = new ModelAndView("/Registration","command", new User());
 		/*mv.addObject("isUserClickedRegister","true");*/
 		return mv;
@@ -74,7 +77,7 @@ public class HomeController {
 	@RequestMapping("/AboutUs")
 	public ModelAndView showAboutUsPage()
 	{
-		System.out.println("Clicked on AboutUs link");
+		log.debug("Clicked on AboutUs link");
 		ModelAndView mv = new ModelAndView("/AboutUs");
 		mv.addObject("isUserClickedAboutUs","true");
 		return mv;
@@ -83,21 +86,11 @@ public class HomeController {
 	@RequestMapping("/ContactUs")
 	public ModelAndView showContactUsPage()
 	{
-		System.out.println("Clicked on ContactUs link");
+		log.debug("Clicked on ContactUs link");
 		ModelAndView mv = new ModelAndView("/ContactUs");
 		mv.addObject("isUserClickedContactUs","true");
 		return mv;
 	}
-	
-	@RequestMapping("/Admin")
-	public ModelAndView showAdminPage()
-	{
-		//System.out.println("Clicked on Admin link");
-		ModelAndView mv = new ModelAndView("/Admin");
-		mv.addObject("isUserClickedAdmin","true");
-		return mv;
-	}
-	
 	
 	@RequestMapping("/Product")
 	public ModelAndView showProduct_menuPage(@ModelAttribute Product product)
@@ -107,12 +100,13 @@ public class HomeController {
 		return mv;
 	}
 	
+	
 	@RequestMapping(value = "/editUser", method = RequestMethod.GET)
 	@Transactional
 	public ModelAndView showEditProduct(@RequestParam("editrow")String id,@ModelAttribute User user)
 	{
 		user=userDAO.getUserById(id);
-		System.out.println("In Mv Before Update");
+		log.debug("In Mv Before Update");
 		ModelAndView mv = new ModelAndView("/ValidateReg","command", new User());
 		List<User> userList = userController.fetchUserList();
 		user = userDAO.getUserById(id);
@@ -143,5 +137,13 @@ public class HomeController {
 		ModelAndView mv = new ModelAndView("/ProductDescription");		
 		return mv;
 		
+	}
+	
+	@RequestMapping("/Admin")
+	public ModelAndView Admin()
+	{
+		ModelAndView mv = new ModelAndView("/Admin");
+		session.removeAttribute("UID");
+		return mv;
 	}
 }

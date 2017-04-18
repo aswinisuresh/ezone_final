@@ -47,7 +47,7 @@
   	{
   	window.location="selEditCategory";
   	}
-  	if(form_value=="DelCategory")
+  	if(form_value=="DeleteCategory")
   	{
   	window.location="selDeleteCategory";
   	}
@@ -65,7 +65,7 @@
     	{
     	window.location="selEditSupplier";
     	}
-    	if(form_value=="DelSupplier")
+    	if(form_value=="DeleteSupplier")
     	{
     	window.location="selDeleteSupplier";
     	}
@@ -77,12 +77,12 @@
 <body>
 <jsp:include page="CommonHeader.jsp"></jsp:include>
 <div class="container">
- <div class="panel panel-primary" style="width:750px;margin:0px auto">
+ <div class="panel panel-primary" style="width:950px;height:550px;margin:0px auto">
 
               <div class="panel-heading">ADMIN</div>
               <div class="panel-body">
   <div class="row">
-  	<div class="col-md-6">
+  	<div class="col-md-10">
 
 
 
@@ -100,23 +100,23 @@
         <option value="DeleteProduct">Delete</option>
  </select>
         </div></div>
-        </div>
-<label>Category</label>
+        </div><br><br>
+<Label>Category</Label>
 
       <select class="form-control" id="category" onchange="dFunc()">
 <option>-------------SELECT OPTION---------------</option>        
         <option value="AddCategory">Add</option>
         <option value="EditCategory">Edit</option>
-        <option value="DelCategory">Delete</option>
+        <option value="DeleteCategory">Delete</option>
       </select>
-
+<br><br>
   <br>  <label>Supplier</label></br>
       <select class="form-control" id="supplier"  onchange="sFunc()">
       
       <option>--------SELECT OPTION-----------------</option>
         <option value="AddSupplier">Add</option>
         <option value="EditSupplier">Edit</option>
-        <option value="DelSupplier">Delete</option>
+        <option value="DeleteSupplier">Delete</option>
        </select> 
   
       </form>

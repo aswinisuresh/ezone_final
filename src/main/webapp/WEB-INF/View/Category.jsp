@@ -23,7 +23,7 @@
 		<td>${category.id}</td>
 		<td>${category.name}</td>
 		<td>${category.description}</td>
-		<td><a href="/manage_category_edit">Edit</a> | <a href="/manage_category_delete">Delete</a></td>
+		<!-- <td><a href="/manage_category_edit">Edit</a> | <a href="/manage_category_delete">Delete</a></td> -->
 	</tr>
 	</c:forEach>
 </table>

@@ -8,6 +8,8 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 
 import com.niit.ezone.dao.ProductDAO;
 import com.niit.ezone.model.Product;
@@ -25,8 +27,9 @@ import com.niit.ezone.model.Product;
 
 @Controller
 public class ProductController {
-	@Autowired
+	private static final Logger log=LoggerFactory.getLogger(ProductController.class);
 	
+	@Autowired
 	private ProductDAO productDAO;
 	
 	@Transactional
@@ -37,9 +40,9 @@ public class ProductController {
 		return mv;
 	}
 	
-	@Transactional
+@Transactional
 	@RequestMapping(name="/validateAddProduct",method=RequestMethod.POST)
-	public ModelAndView addProductFunction(@ModelAttribute Product product)
+	public ModelAndView addProductFunction(@ModelAttribute Product product,HttpServletRequest request)
 	{
 	
 		productDAO.saveProduct(product);
@@ -143,7 +146,7 @@ public class ProductController {
 		return mv;
 	}
 	
-	@RequestMapping("/selProductView")
+@RequestMapping("/selProductView")
 	public ModelAndView viewProduct(Map<String, Object> map)
 	{	String path="C:\\DevOps software\\Mars-workspace\\FinalDevProject\\ezone\\src\\main\\webapp\\resources\\images\\";
 		List<Product> prodList=productDAO.getAllProduct();
@@ -153,16 +156,7 @@ public class ProductController {
 		return mv;
 	}
 	
-	/*@RequestMapping("/goProdView")
-	public ModelAndView showProducts()
-	{
-		System.out.println("Inside Product view");
-		List<Product> prList=productDAO.getAllProduct();
-		ModelAndView mv=new ModelAndView("/Product");
-		mv.addObject("prods", prList);
-		System.out.println("Leaving Prod view");
-		return mv;
-	}*/
+
 	
 	
 	

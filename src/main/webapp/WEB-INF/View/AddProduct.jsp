@@ -11,9 +11,50 @@
 <script type="text/javascript" src="js/valid.js"></script>
 <title>Insert title here</title>
 <jsp:include page="CommonHeader.jsp"></jsp:include> 
+<script>
+function validateForm()
+{
+    if(document.frm.prodid.value=="")
+    {
+      alert("Product id should not be left blank");
+      document.frm.prodid.focus();
+      return false;
+    }
+    else if(document.frm.prodname.value=="")
+    {
+      alert("Product prodname should not be left blank");
+      document.frm.prodname.focus();
+      return false;
+    }
+    else if(document.frm.suppid.value=="")
+    {
+      alert("Supplier id should not be left blank");
+      document.frm.suppid.focus();
+      return false;
+    }
+    else if(document.frm.catid.value=="")
+    {
+      alert("Category id should not be left blank");
+      document.frm.catid.focus();
+      return false;
+    }
+    else if(document.frm.prodquan.value=="")
+    {
+      alert("Product quantity should not be left blank");
+      document.frm.prodquan.focus();
+      return false;
+    }
+    else if(document.frm.prodcost.value=="")
+    {
+      alert("Product cost should not be left blank");
+      document.frm.prodcost.focus();
+      return false;
+    }
+}
+</script>
 </head>
 
-<body>1
+<body>
 <div class="container">
  <div class="panel panel-primary" style="width:750px;margin:0px auto">
 <div class="panel-heading">ADD PRODUCT</div>
@@ -22,7 +63,7 @@
   
   	<%-- <form:form action="validateAddProduct" method ="post"> --%>
   	  	
-  	<form:form action="validateAddProduct" modelattribute="Product" enctype="multipart/form-data" method="POST">
+  	<form:form name="frm" action="validateAddProduct" modelattribute="Product" enctype="multipart/form-data" onSubmit="return validateForm()">
   	 
   	<div class="col-xs-6">
     <div class="input-group">

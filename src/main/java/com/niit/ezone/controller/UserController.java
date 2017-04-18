@@ -6,6 +6,9 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -18,15 +21,19 @@ import com.niit.ezone.dao.ProductDAO;
 import com.niit.ezone.dao.UserDAO;
 import com.niit.ezone.model.User;
 import com.niit.ezone.model.Product;
-import com.niit.ezone.model.Supplier;
 
 
 @Controller
 public class UserController {
+	private static final Logger log=LoggerFactory.getLogger(UserController.class);
 	
 	private String logid;
 	private String regid;
 	
+	public String getLogid() {
+		return logid;
+	}
+
 	@Autowired
 	User user;
 	
@@ -40,49 +47,16 @@ public class UserController {
 	@Autowired
 	ProductDAO productDAO;
 	
-	/*@RequestMapping("/validateLogin")
-	public ModelAndView userlogin(@RequestParam("id") String uid,@RequestParam("password") String psw)
-	{
-		//log.debug("Start of method userlogin");
-		User user=userDAO.getUserById(uid);
-		ModelAndView mv;
-		String pwd=user.getPassword();
-		if(pwd.equals(psw))
-		{
-			if(user.getRole().equals("ROLE_ADMIN"))
-			{
-				mv=new ModelAndView("/Home");
-				session.setAttribute("AdminMsg","AdminLoggedIn");
-				session.setAttribute("UserName", user.getId());
-				session.setAttribute("loginMsg", null);
-			}
-			else
-			{
-				mv=new ModelAndView("/Home");
-				session.setAttribute("UserName", user.getId());
-				session.setAttribute("loginMsg", null);
-			}
-		}
-		else
-		{
-			mv=new ModelAndView("/Home");
-			session.setAttribute("loginMsg", "notloggedIn");
-			mv.addObject("msg","Invlaid Login");
-		}
-		//log.debug("End of method userlogin");
-		return mv;
-		session.setAttribute("UserMsg","LoggedIn");
-	}*/
 		
 	@Transactional
-	@RequestMapping(value="/validateLogin",method=RequestMethod.POST)
+	@RequestMapping(value="/validatelogin",method=RequestMethod.POST)
 	public ModelAndView validation(@ModelAttribute User user, @RequestParam("id") String uid,@RequestParam("password")String psw)
 	{
 		ModelAndView mv;
 		user = userDAO.validateLoginCredentials(uid, psw);
 		if(user==null)
 		{
-			mv = new ModelAndView("/validateLogin","command",new User());
+			mv = new ModelAndView("/validatelogin","command",new User());
 			mv.addObject("compareF", "Wrong Credentials");
 		}
 		else
@@ -97,6 +71,7 @@ public class UserController {
 			session.setAttribute("LogList", "true");
 			session.setAttribute("UID", "Welcome:" +uid);
 			session.setAttribute("SUCC","Done");
+			mv = new ModelAndView("/ProductView");
 		}
 		return mv;
 	}
@@ -116,63 +91,64 @@ public class UserController {
 		mv.addObject("LNAME", lname);
 		if(uid=="")
 		{
-			System.out.println("In if 1");
+			log.debug("In if 1");
 			mv.addObject("RUID","User Name Not Entered");
 		}
 		if(psw=="")
 		{
-			System.out.println("In if 2");
+			log.debug("In if 2");
 			mv.addObject("RPSW","Password Not Entered");
 		}
 		if(cpsw=="")
 		{
-			System.out.println("In if 3");
+			log.debug("In if 3");
 			mv.addObject("RCPSW","Confirm Password Not Entered");
 		}
 		if(mail=="")
 		{
-			System.out.println("In if 4");
+			log.debug("In if 4");
 			mv.addObject("RMAIL","Email Not Entered");
 		}
 		if(fname=="")
 		{
-			System.out.println("In if 5");
+			log.debug("In if 5");
 			mv.addObject("RFNAME","First Name Not Entered");
 		}
 		if(lname=="")
 		{
-			System.out.println("In if 6");
+			log.debug("In if 6");
 			mv.addObject("RLNAME","Last Name Not Entered");
 		}
 		if(fname.equals(uid))
 		{
-			System.out.println("In if 7");
+			log.debug("In if 7");
 			mv.addObject("compareUF", "First Name & User Name Must Not Be Same");
 		}
 		if(b2!=true)
 		{
-			System.out.println("In if 8");
+			log.debug("In if 8");
 			mv.addObject("compareP", "Password & Confirm Password Must Be Same");
 		}
 		if(b1!=true)
 		{
-			System.out.println("In if 9");
+			log.debug("In if 9");
 			mv.addObject("comparePSW", "Password Must Be Greater Than 8 Characters.It Should Conatin One Symbol One Capital Letter One Small Letter One Number and No Space");
 		}
 		if(b!=true)
 		{
-			System.out.println("In if 10");
+			log.debug("In if 10");
 			mv.addObject("compareE", "Email Is Not Properly Entered Make Sure (@) & (.) is used Example : example@abc.com");
 		}
 		else
 		{
-			System.out.println("In Else");
+			log.debug("In Else");
 			mv.addObject("success", "Hi " );
 			user.setRole("Role_User");
 			userDAO.saveUser(user);
 			List<User> userList = fetchUserList();
 			mv.addObject("successList", userList);
-			regid=uid;
+			regid = uid;
+			/*logid=uid;*/
 			user = userDAO.getUserById(regid);
 			mv.addObject("L", user);
 			session.removeAttribute("updateUser");
@@ -226,25 +202,12 @@ public class UserController {
 		return mv;
 	}
 	
-	/*@RequestMapping(value = "/deleteUser", method = RequestMethod.GET)
-	@Transactional
-	public ModelAndView validateDeleteSupplier(@RequestParam("deleterow")String id,User user)
-	{
-		user = userDAO.getUserById(id);
-		System.out.println("In Mv Before Delete");
-		ModelAndView mv = new ModelAndView("/ValidateReg","command",new Supplier());
-		userDAO.deleteUser(user);
-		List<User> userList = fetchUserList();
-		mv.addObject("successList",userList);
-		mv.addObject("successDelete", "Supplier Deleted Successfully");
-		return mv;
-	}*/
 	
 	@RequestMapping(value = "/validateUserEdit", method = RequestMethod.POST)
 	@Transactional
 	public ModelAndView validateEditUser(@ModelAttribute User user)
 	{
-		System.out.println("In Mv Before Update");
+		log.debug("In Mv Before Update");
 		ModelAndView mv = new ModelAndView("/ValidateReg","command", new User());
 		user.setRole("Role_User");
 		userDAO.updateUser(user);

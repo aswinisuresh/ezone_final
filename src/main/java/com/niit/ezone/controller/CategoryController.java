@@ -13,7 +13,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.niit.ezone.dao.CategoryDAO;
 import com.niit.ezone.model.Category;
 
-
 @Controller
 public class CategoryController {
 
@@ -74,8 +73,9 @@ public class CategoryController {
 	
 	@Transactional
 	@RequestMapping("/selDeleteCategory")
-	public ModelAndView deleteCategoryFunction()
-	{
+	public ModelAndView deleteCategoryFunction(Map<String, Object> map)
+	{	List<Category> catList=categoryDAO.getAllCategory();
+		map.put("caList", catList );
 		ModelAndView mv=new ModelAndView("/DeleteCategory");
 		return mv;
 	}

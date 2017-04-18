@@ -3,6 +3,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
 import org.springframework.stereotype.Component;
@@ -24,6 +26,13 @@ public class Product {
 	@Transient
 	private MultipartFile pimage;
 	
+/*	@ManyToOne
+	@JoinColumn(name = "suppid", nullable = false, updatable = false, insertable = false)
+	private Supplier supplier;
+	
+	@ManyToOne
+	@JoinColumn(name = "catid", nullable = false, updatable = false, insertable = false)
+	private Category category;	*/
 	
 	
 	public MultipartFile getPimage() {

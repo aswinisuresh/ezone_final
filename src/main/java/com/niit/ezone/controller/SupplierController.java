@@ -2,7 +2,6 @@ package com.niit.ezone.controller;
 
 import java.util.List;
 import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -72,8 +71,9 @@ public class SupplierController {
 
 	@Transactional
 	@RequestMapping("/selDeleteSupplier")
-	public ModelAndView deleteSupplierFunction()
-	{
+	public ModelAndView deleteSupplierFunction(Map<String, Object> map)
+	{	List<Supplier> suppList=supplierDAO.getAllSupplier();
+		map.put("supList",suppList );
 		ModelAndView mv=new ModelAndView("/DeleteSupplier");
 		return mv;
 	}
