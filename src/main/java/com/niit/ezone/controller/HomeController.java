@@ -35,13 +35,13 @@ public class HomeController {
 	UserController userController;
 	
 		
-	/*@RequestMapping("/")
+	@RequestMapping("/")
 	public ModelAndView showHome()
 	{
 		ModelAndView mv = new ModelAndView("/Home");		
 		return mv;
 		
-	}*/
+	}
 	
 
 	@RequestMapping("/Home")
@@ -55,7 +55,7 @@ public class HomeController {
 	@RequestMapping("/Login")
 	public ModelAndView showLoginPage()
 	{
-		System.out.println("Clicked on login link");
+		log.debug("Clicked on login link");
 		ModelAndView mv= new ModelAndView("/Login");
 		mv.addObject("isUserClickedLogin","true");
 		return mv;
@@ -96,49 +96,19 @@ public class HomeController {
 	}
 	
 	
-	@RequestMapping(value = "/editUser", method = RequestMethod.GET)
-	@Transactional
-	public ModelAndView showEditProduct(@RequestParam("editrow")String id,@ModelAttribute User user)
-	{
-		user=userDAO.getUserById(id);
-		log.debug("In Mv Before Update");
-		ModelAndView mv = new ModelAndView("/ValidateReg","command", new User());
-		List<User> userList = userController.fetchUserList();
-		user = userDAO.getUserById(id);
-		mv.addObject("successList",userList);
-		mv.addObject("L", user);
-		mv.addObject("UID", id);
-		mv.addObject("FNAME", user.getFname());
-		mv.addObject("LNAME", user.getLname());
-		mv.addObject("UMAIL", user.getEmail());
-		mv.addObject("PASS", user.getPassword());
-		mv.addObject("CPASS", user.getConfirmpassword());
-		session.setAttribute("updateUser", "updated");
-		session.removeAttribute("addUser");
-		return mv;
-	}
-	
-	@RequestMapping("/Logout")
+	/*@RequestMapping("/Logout")
 	public ModelAndView Logout()
 	{
 		ModelAndView mv = new ModelAndView("/Login");
 		session.removeAttribute("UID");
 		return mv;
-	}
-	
-	@RequestMapping("/ProductDescription")
-	public ModelAndView showproddesc()
-	{
-		ModelAndView mv = new ModelAndView("/ProductDescription");		
-		return mv;
-		
-	}
+	}*/
 	
 	@RequestMapping("/Admin")
 	public ModelAndView Admin()
 	{
 		ModelAndView mv = new ModelAndView("/Admin");
-		session.removeAttribute("UID");
+		//session.removeAttribute("UID");
 		return mv;
 	}
 }

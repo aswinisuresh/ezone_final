@@ -70,7 +70,5 @@ public class MyCart {
 	public void setSum(int sum) {
 		this.sum = sum;
 	}
-	
-	
-	
+		
 	}

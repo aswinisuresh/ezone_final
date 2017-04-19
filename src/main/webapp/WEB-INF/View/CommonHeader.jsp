@@ -32,9 +32,8 @@
     	</c:if>
        <li><a href="AboutUs">Aboutus</a></li>
        <li><a href="ContactUs">Contactus</a></li>
-       <li> <a href="ProductView" class="btn btn-default btn-sm">
-          <span class="glyphicon glyphicon-shopping-cart"></span> Cart
-        </a> </li>
+       <c:if test="${(not empty UID) and (empty showAdmin) }"><li> <a href="ProductView" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-shopping-cart"></span> Cart</a> </li></c:if>
            
 </ul>
 </div>

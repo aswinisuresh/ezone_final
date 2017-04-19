@@ -37,7 +37,6 @@ public class UserDAOImpl implements UserDAO{
 			sessionFactory.getCurrentSession().save(user);
 			return true;
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
 		}
@@ -48,7 +47,6 @@ public class UserDAOImpl implements UserDAO{
 			sessionFactory.getCurrentSession().delete(user);
 			return true;
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
 		}
@@ -59,7 +57,6 @@ public class UserDAOImpl implements UserDAO{
 			sessionFactory.getCurrentSession().update(user);
 			return true;
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
 		}

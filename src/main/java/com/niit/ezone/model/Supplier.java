@@ -49,10 +49,6 @@ public void setSuppaddress(String suppaddress) {
 	this.suppaddress = suppaddress;
 }
 
-/*@Override
-public String toString() {
-	return "Supplier [supplierID=" + suppid + ", supplierName=" + suppname + ", supplieraddress="
-			+ suppaddress + "]";
-}*/
+
 
 }

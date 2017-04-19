@@ -56,12 +56,5 @@ public class User {
 	public void setConfirmpassword(String confirmpassword) {
 		this.confirmpassword = confirmpassword;
 	}
-/*	
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", fname=" + fname + ", lname=" + lname + ", password=" + password + ",Email=" + email + ", Role="
-				+ role + "]";
-	}
-	*/
 		
 }

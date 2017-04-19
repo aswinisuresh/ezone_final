@@ -18,20 +18,9 @@
 </head>
 <body>
  <script type="text/javascript" src="js/valid.js"></script>
-<%-- <form class="form-horizontal" action="Login"> --%>
-
 <form action="validatelogin" name="Login" >
  <center>${compareT}</center>
 <center>${compareF}</center>
-
-
- <%-- <center>${UID}</center><c:if test="${not empty UID}">
- <a href="Logout">Logout</a>
-</c:if>
-
- <c:if test="${empty UID}">
- <a href="Login">Login</a>
-</c:if> --%>
 
 <div class="container">
 <div class="row">

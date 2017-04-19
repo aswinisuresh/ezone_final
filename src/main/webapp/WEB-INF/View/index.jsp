@@ -10,8 +10,5 @@
 <body>
 Hello World
 
-<c:if test="${isUserClickedAddToCart ==true}">
-<jsp:include page="ProductDescription.jsp"></jsp:include>
-</c:if>
 </body>
 </html>

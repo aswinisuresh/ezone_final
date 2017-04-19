@@ -167,10 +167,10 @@ public class UserController {
 		return list;
 	}
 	
-	@RequestMapping("/logout")
+	@RequestMapping("/Logout")
 	public ModelAndView logout()
 	{
-		ModelAndView mv = new ModelAndView("/index");
+		ModelAndView mv = new ModelAndView("/Home");
 		session.removeAttribute("UID");
 		session.removeAttribute("SUCC");
 		session.removeAttribute("showAdmin");
@@ -179,21 +179,6 @@ public class UserController {
 		return mv;
 	}
 	
-	
-	@RequestMapping(value = "/validateUserEdit", method = RequestMethod.POST)
-	@Transactional
-	public ModelAndView validateEditUser(@ModelAttribute User user)
-	{
-		log.debug("In Mv Before Update");
-		ModelAndView mv = new ModelAndView("/ValidateReg","command", new User());
-		user.setRole("Role_User");
-		userDAO.updateUser(user);
-		List<User> userList = fetchUserList();
-		mv.addObject("successList",userList);
-		mv.addObject("successUpdate", "User Updated Successfully");
-		session.removeAttribute("updateUser");
-		return mv;
-	}
 	
 	@Transactional
 	@RequestMapping("/ProductView")
