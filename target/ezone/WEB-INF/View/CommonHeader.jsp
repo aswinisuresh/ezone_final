@@ -10,74 +10,34 @@
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
-<style>
-.active {
-    background-color: #4CAF50;
-}
-</style>
+
 </head>
 <body>
 
-<%--  <h3> <center style="color:Maroon"> ezone Shopping Cart</center></h3> --%>
-
-<!-- <nav class="navbar navbar-light" style="background-color: #DB7093;"> -->
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
+<nav class="navbar navbar-default" style="background-color: black;">
+ <div class="container-fluid">
   
-  <div class="navbar-header">
-<a class="navbar-brand" href="Home">ezone Shopping cart</a>
+<div class="navbar-header">
+<a class="navbar-brand" href="Home">eZone Shopping cart</a>
 </div>
-   <ul class="nav navbar-nav">
-    <li class="active"><a href="Home">Home</a></li>
-      <li><a href="Registration">Registration</a></li>
-      <li><a href="AboutUs">About Us</a></li>
-      <li><a href="ContactUs">Contact Us</a></li>
-      <li><a href="ProductView">ProductView</a></li>
-      
-      <li><a href="Reg">Reg</a></li>
-     <!-- <li class="fa fa-shopping-cart" aria-hidden="true"></li> -->
-    
-            
-   <li> <c:if test="${not empty showAdmin }">
-		<a href="Admin">Admin</a> 
-		</li>
-         </c:if>            
-     </ul>
-
-     <!-- <ul class="nav navbar-nav navbar-right">
-        <li><a href="Login"><span class="glyphicon glyphicon-log-in">     -->    
-<%--   <center>${UID}</center>
-<c:if test="${not empty UID}">
- 	<a href="Logout">Logout</a>
-</c:if>
-</span> Login</a>
- <c:if test="${empty UID}">
- <a href="Login">Login</a>
-</c:if>  --%>
-<!-- </li> -->
-   </ul>   
-      
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="ProductView"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
-      </ul>
-    
-     <ul class="nav navbar-nav navbar-right">
-        <li><a href="Login"><span class="glyphicon glyphicon-log-in">
-        </span>  Login</a></li></ul>
-     
-   </div>
-   
-<c:if test="${empty UID }"><li id="effect"><a href="Login" style="color:white"></a></li></c:if>
-    	<c:if test="${empty SUCC }"><li id="effect"><a href="Registration" style="color:white"></a></li></c:if>
-    	<c:if test="${not empty showAdmin }"><li id="effect"><a href="admin" style="color:white"></a></li></c:if>
+<ul class="nav navbar-nav">
+<!-- <li class="active"><a href="Home">Home</a></li> -->
+<li><a href="Home" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-home"></span> Home</a></li>
+          <c:if test="${empty UID }"><li id="effect"><a href="Login" style="color:white">Login</a></li></c:if>
+    	<c:if test="${empty SUCC }"><li id="effect"><a href="Registration" style="color:white">Register</a></li></c:if>
+    	<c:if test="${not empty showAdmin }"><li id="effect"><a href="Admin" style="color:white">Admin</a></li></c:if>
     	<c:if test="${(not empty UID) and (not empty SUCC)}">
-    	<%-- <c:if test="${not empty LogList }"><li id="effect"><a href="ulist" style="color:white">Account Settings</a></li></c:if>
-    	<c:if test="${not empty RegList }"><li id="effect"><a href="ulist1" style="color:white">Account Settings</a></li></c:if> --%>
     	<li id="effect"><a href="Logout" style="color:white">Logout</a></li>
     	</c:if>
-
- </nav>
-
+       <li><a href="AboutUs">Aboutus</a></li>
+       <li><a href="ContactUs">Contactus</a></li>
+       <c:if test="${(not empty UID) and (empty showAdmin) }"><li> <a href="ProductView" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-shopping-cart"></span> Cart</a> </li></c:if>
+           
+</ul>
+</div>
+</nav>
 
 </body>
 </html>

@@ -28,7 +28,7 @@ public class CategoryController {
 	}
 	
 	@Transactional
-	@RequestMapping("/validateAddCategory")
+	@RequestMapping(value="/validateAddCategory",method=RequestMethod.POST)
 	public ModelAndView showAddCategoryPage(@ModelAttribute Category category)
 	{	
 		

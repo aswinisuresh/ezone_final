@@ -18,7 +18,7 @@
 </head>
 <body>
  <script type="text/javascript" src="js/valid.js"></script>
-<form action="validatelogin" name="Login" >
+<form action="validatelogin" name="Login" method="post">
  <center>${compareT}</center>
 <center>${compareF}</center>
 
@@ -52,9 +52,6 @@
 </div>
 </div>
 </form> 
-
-
-
 <jsp:include page="CommonFooter.jsp"></jsp:include> 
 </body>
 

@@ -18,5 +18,4 @@ com\niit\ezone\controller\HomeController.class
 com\niit\ezone\dao\ProductDAO.class
 com\niit\ezone\model\MyCart.class
 com\niit\ezone\controller\CartController.class
-com\niit\ezone\model\Address.class
 com\niit\ezone\model\User.class

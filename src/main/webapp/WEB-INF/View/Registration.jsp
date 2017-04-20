@@ -7,6 +7,16 @@ a<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <title>ezone</title>
+<script>
+function isPasswordMatch() {
+    var password = $("#password").val();
+    var confirmPassword = $("#confirmpassword").val();
+
+    if (password != confirmPassword) $("#divCheckPassword").html("Passwords do not match!");
+    else $("#divCheckPassword").html("Passwords match.");
+}
+
+</script>
 
 </head>
 <body>

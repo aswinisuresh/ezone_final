@@ -35,8 +35,7 @@ public class UserController {
 	}
 
 	@Autowired
-	User user;
-	
+	User user;	
 	
 	@Autowired
 	UserDAO userDAO;
@@ -49,7 +48,7 @@ public class UserController {
 	
 		
 	@Transactional
-	@RequestMapping(value="/validatelogin")
+	@RequestMapping(value="/validatelogin",method=RequestMethod.POST)
 	public ModelAndView validation(@ModelAttribute User user, @RequestParam("id") String uid,@RequestParam("password")String psw)
 	{
 		
@@ -78,7 +77,7 @@ public class UserController {
 	}
 	
 	@Transactional
-	@RequestMapping("/validateregister")
+	@RequestMapping(value="/validateregister",method=RequestMethod.POST)
 	public ModelAndView validationlogin(@ModelAttribute User user,@RequestParam("password")String psw,@RequestParam("id") String uid,@RequestParam("fname") String fname,@RequestParam("lname")String lname,@RequestParam("email") String mail,@RequestParam("confirmpassword")String cpsw)
 	{
 		String compareEmail = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";

@@ -27,7 +27,7 @@ public class SupplierController {
 	}
 	
 	@Transactional
-	@RequestMapping("/validateAddSupplier")
+	@RequestMapping(value="/validateAddSupplier",method=RequestMethod.POST)
 	public ModelAndView showAddSupplierPage(@ModelAttribute Supplier supplier)
 	{	
 		

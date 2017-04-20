@@ -47,6 +47,9 @@
   </table>
   </div>
   </div>
+  <center>
+  <button type="submit" class="btn btn-success btn-lg">Proceed to Checkout</button></center>
+  <a href="checkout">Checkout</a>
   <jsp:include page="CommonFooter.jsp"></jsp:include>
   </body>
 </html>

@@ -12,6 +12,8 @@
 	text-align:center;
 }
 </style>
+
+
 </head>
 <body>
 <jsp:include page="CommonHeader.jsp"></jsp:include>

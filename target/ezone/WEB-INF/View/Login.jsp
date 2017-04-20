@@ -18,20 +18,9 @@
 </head>
 <body>
  <script type="text/javascript" src="js/valid.js"></script>
-<%-- <form class="form-horizontal" action="Login"> --%>
-
-<form action="validatelogin" name="Login" method ="post">
+<form action="validatelogin" name="Login" >
  <center>${compareT}</center>
 <center>${compareF}</center>
-
-
- <%-- <center>${UID}</center><c:if test="${not empty UID}">
- <a href="Logout">Logout</a>
-</c:if>
-
- <c:if test="${empty UID}">
- <a href="Login">Login</a>
-</c:if> --%>
 
 <div class="container">
 <div class="row">
@@ -48,9 +37,9 @@
  <div class="form-group">
  
  
- <input type="text" name="id" id="id" class="form-control input-sm chat-input" placeholder="Enter user id"/>
+ <input type="text" name="id" id="id" required="required" class="form-control input-sm chat-input" placeholder="Enter user id"/>
 <br>
- <input type="password" name="password" id="password" class="form-control input-sm chat-input" placeholder="Enter Password"/>
+ <input type="password" name="password" id="password" required="required" class="form-control input-sm chat-input" placeholder="Enter Password"/>
 <br>
 <div class="wrapper">
 <span class="group-btn">
@@ -63,9 +52,6 @@
 </div>
 </div>
 </form> 
-
-
-
 <jsp:include page="CommonFooter.jsp"></jsp:include> 
 </body>
 
