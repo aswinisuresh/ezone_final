@@ -37,16 +37,7 @@
           <p>Cost: ${pList.prodcost}</p>
           <p>Desc:${pList.proddesc}</p>
           <a href="validate_add_cart?prodname=${pList.prodname}" class="btn btn-default"><em class="fa fa-shopping-cart fa-fw"></em>Add To Cart</a>
-          <%-- <a href="#" class="btn btn-primary"
-										   ng-click="addItemToCart('${product.prodiId}')"><span
-												class="glyphicon glyphicon-shopping-cart">
-							</span>Add to cart
-												
-											</a> --%>
-										<%-- <a href="<spring:url value="/user/cart" />"
-										   class="btn btn-primary"><span class="glyphicon glyphicon-hand-right"></span>View Cart</a> --%>
-          
-       <!--  <button type="button">Add to Cart</button> -->
+         
           </center>
           </div>
           </div>

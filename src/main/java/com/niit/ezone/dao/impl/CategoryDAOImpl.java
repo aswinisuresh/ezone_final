@@ -20,7 +20,7 @@ public class CategoryDAOImpl implements CategoryDAO{
 		return sessionFactory.getCurrentSession().createQuery("from Category").list();
 		
 	}
-
+	@Transactional
 	public boolean saveCategory(Category category) {
 		try
 		{
@@ -33,7 +33,7 @@ public class CategoryDAOImpl implements CategoryDAO{
 		}
 		
 	}
-
+	@Transactional
 	public boolean updateCategory(Category category) {
 		try {
 			sessionFactory.getCurrentSession().update(category);
@@ -44,7 +44,7 @@ public class CategoryDAOImpl implements CategoryDAO{
 			
 		}
 	}
-
+	@Transactional
 	public boolean deleteCategory(int catid) {
 		try {
 			sessionFactory.getCurrentSession().delete(getCategoryByID(catid));
@@ -55,7 +55,7 @@ public class CategoryDAOImpl implements CategoryDAO{
 			return false;
 		}
 	}
-
+	@Transactional
 	public boolean deleteCategory(Category category) {
 		try {
 			sessionFactory.getCurrentSession().delete(category);
@@ -66,11 +66,11 @@ public class CategoryDAOImpl implements CategoryDAO{
 			
 		}
 	}
-
+	@Transactional
 	public Category getCategoryByID(int catid) {
 		return (Category)	sessionFactory.getCurrentSession().get(Category.class, catid);
 	}
-
+	@Transactional
 	public Category getCategoryByName(String catname) {
 		return	 (Category)sessionFactory.getCurrentSession().createQuery("from Category where name ='"+catname+"'").uniqueResult();
 	}

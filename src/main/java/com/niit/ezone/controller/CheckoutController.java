@@ -28,7 +28,7 @@ public class CheckoutController {
 	MyCart mycart;
 	@Autowired
 	CartDAO cartdao;
-	@Transactional
+//	@Transactional
 	public List<Checkout> showlist()
 	{
 		String id= userController.getLogid();
@@ -38,9 +38,15 @@ public class CheckoutController {
 		return list;
 	}
 	
-	@Transactional
-	@RequestMapping(value="/checkout",method=RequestMethod.GET)
-	public ModelAndView gocheckout()
+//	@RequestMapping("/checkout")
+//	public String gotoCkOut(@ModelAttribute("ckout")Checkout ckout)
+//	{
+//		return "checkout";
+//	}
+	
+//	@Transactional
+	@RequestMapping("/checkout")
+	public ModelAndView gocheckout(@ModelAttribute("ckout")Checkout ckout)
 	{
 		
 		String id= userController.getLogid();
@@ -63,7 +69,7 @@ public class CheckoutController {
 			
 		
 	}
-	@Transactional
+//	@Transactional
 	@RequestMapping("/finalcheckout")
 	public ModelAndView gotoaddcheckout(@ModelAttribute Checkout checkout)
 	{
@@ -77,7 +83,7 @@ public class CheckoutController {
 		return mv;
 	}
 
-	@Transactional
+//	@Transactional
 	@RequestMapping("/generatebill")
 	public ModelAndView generatebill()
 	{
@@ -88,9 +94,6 @@ public class CheckoutController {
 		ModelAndView mv= new ModelAndView("/generatebilldetails");
 		mv.addObject("cartdetails",list);
 		mv.addObject("checkoutdetails", list1);
-		//double total=checkoutDAO.gettotal(id);
-		//mv.addObject("checkouttotal", total);
-		
 		return mv;
 	}
 }

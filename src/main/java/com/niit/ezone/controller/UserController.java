@@ -47,6 +47,12 @@ public class UserController {
 	ProductDAO productDAO;
 	
 		
+	public UserController() {
+		//super();
+		// TODO Auto-generated constructor stub
+		System.out.println("inside user controller.....");
+	}
+
 	@Transactional
 	@RequestMapping(value="/validatelogin",method=RequestMethod.POST)
 	public ModelAndView validation(@ModelAttribute User user, @RequestParam("id") String uid,@RequestParam("password")String psw)

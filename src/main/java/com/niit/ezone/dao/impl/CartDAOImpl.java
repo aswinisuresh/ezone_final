@@ -24,10 +24,12 @@ public class CartDAOImpl  implements CartDAO
 		
 		this.sessionFactory=sessionFactory;		
 	}
+     @Transactional
 	public List<MyCart> getAllCartDetails(String uid) {
 		
 		return sessionFactory.getCurrentSession().createQuery("from MyCart where id='"+uid+"'").list();
 	}
+     @Transactional
 	public boolean save(MyCart myCart) {
 		try {
 			sessionFactory.getCurrentSession().save(myCart);
@@ -37,6 +39,7 @@ public class CartDAOImpl  implements CartDAO
 		}
 		return false;
 	}
+     @Transactional
 	public boolean update(MyCart myCart) {
 		try {
 			sessionFactory.getCurrentSession().update(myCart);
@@ -46,6 +49,7 @@ public class CartDAOImpl  implements CartDAO
 		}
 		return false;
 	}
+     @Transactional
 	public boolean delete(MyCart myCart) {
 		try {
 			sessionFactory.getCurrentSession().delete(myCart);
@@ -56,14 +60,17 @@ public class CartDAOImpl  implements CartDAO
 		
 		return false;
 	}
+     @Transactional
 	public MyCart getMyCartById(int cartid) {
 		return (MyCart) sessionFactory.getCurrentSession().get(MyCart.class, cartid);
 
 	
 	}
+     @Transactional
 	public MyCart getMyCartByName(String prodname) {
 		return (MyCart) sessionFactory.getCurrentSession().createQuery("from MyCart where prodname='"+prodname+"'").uniqueResult();
 	}
+     @Transactional
 	public int getProductSum(int prodcost, int prodquan) {
 		return prodcost*prodquan;
 	}

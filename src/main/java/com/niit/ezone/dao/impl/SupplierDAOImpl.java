@@ -15,11 +15,11 @@ import com.niit.ezone.model.Supplier;
 public class SupplierDAOImpl  implements SupplierDAO{
 	@Autowired
 	private SessionFactory sessionFactory;
-
+	@Transactional
 	public List<Supplier> getAllSupplier() {
 		return	sessionFactory.getCurrentSession().createQuery("from Supplier").list();
 	}
-
+	@Transactional
 	public boolean saveSupplier(Supplier supplier) {
 		try
 		{
@@ -32,6 +32,7 @@ public class SupplierDAOImpl  implements SupplierDAO{
 		}
 	}
 
+	@Transactional
 	public boolean updateSupplier(Supplier supplier) {
 		try {
 			sessionFactory.getCurrentSession().update(supplier);
@@ -43,6 +44,7 @@ public class SupplierDAOImpl  implements SupplierDAO{
 		}
 	}
 
+	@Transactional
 	public boolean deleteSupplier(int suppid) {
 		try {
 			sessionFactory.getCurrentSession().delete(getSupplierByID(suppid));
@@ -54,6 +56,7 @@ public class SupplierDAOImpl  implements SupplierDAO{
 		}
 	}
 
+	@Transactional
 	public boolean deleteSupplier(Supplier supplier) {
 		try {
 			sessionFactory.getCurrentSession().delete(supplier);
@@ -64,11 +67,11 @@ public class SupplierDAOImpl  implements SupplierDAO{
 			
 		}
 	}
-
+	@Transactional
 	public Supplier getSupplierByID(int suppid) {
 		return (Supplier)sessionFactory.getCurrentSession().get(Supplier.class, suppid);
 	}
-
+	@Transactional
 	public Supplier getSupplierByName(String suppname) {
 		return(Supplier)sessionFactory.getCurrentSession().createQuery("from Supplier where name ='"+suppname+"'").uniqueResult();
 	}

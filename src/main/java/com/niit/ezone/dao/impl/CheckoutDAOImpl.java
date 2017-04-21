@@ -6,6 +6,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.ezone.model.Checkout;
 import com.niit.ezone.model.MyCart;
@@ -16,12 +17,15 @@ public class CheckoutDAOImpl {
 	@Autowired
 	private SessionFactory sessionfactory;
 	
+	
+	@Transactional
 	public List<Checkout> getlist(String id) 
 	{
 		return sessionfactory.getCurrentSession().createQuery("from Checkout where id='"+id+"'").list();
 		
 	}
 
+	@Transactional
 	public boolean Save(Checkout checkout) 
 	{
 			
@@ -35,6 +39,7 @@ public class CheckoutDAOImpl {
 				}
 		}
 
+	@Transactional
 	public boolean update(Checkout checkout) {
 		try {
 			sessionfactory.getCurrentSession().update(checkout);
@@ -46,6 +51,7 @@ public class CheckoutDAOImpl {
 				}
 		}
 
+	@Transactional
 	public boolean delete(Checkout checkout) 
 	{
 		try {
@@ -58,6 +64,7 @@ public class CheckoutDAOImpl {
 				}
 	}
 
+	@Transactional
 	public Boolean execute(String id)
 	{
 		try {
@@ -69,11 +76,13 @@ public class CheckoutDAOImpl {
 		}
 	}
 	
+	@Transactional
 	public String checktableforempty(String id)	
 	{
 		return sessionfactory.getCurrentSession().createSQLQuery("select count(*) from checkout where id='"+id+"'").uniqueResult().toString();
 	}
 
+	@Transactional
 	public List<MyCart> getallcartdetails(String cartid)
 	{
 			return sessionfactory.getCurrentSession().createQuery("from MyCart where cartid='"+cartid+"'").list();
@@ -81,6 +90,7 @@ public class CheckoutDAOImpl {
 	
 	}
 	
+	@Transactional
 	public double gettotal(String uid)
 	{
 		String result=sessionfactory.getCurrentSession().createSQLQuery("select isnull(sum(cartsum),0) from mycart where user_id='"+uid+"' and status='O'").uniqueResult().toString();

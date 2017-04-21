@@ -19,7 +19,7 @@ public class CategoryController {
 	@Autowired
 	private CategoryDAO categoryDAO;
 	
-	@Transactional
+	//@Transactional
 	@RequestMapping("/selAddCategory")
 	public ModelAndView clickedAddCategory()
 	{
@@ -27,7 +27,7 @@ public class CategoryController {
 		return mv;
 	}
 	
-	@Transactional
+	//@Transactional
 	@RequestMapping(value="/validateAddCategory",method=RequestMethod.POST)
 	public ModelAndView showAddCategoryPage(@ModelAttribute Category category)
 	{	
@@ -38,7 +38,7 @@ public class CategoryController {
 		return mv;
 	}
 
-	@Transactional
+	//@Transactional
 	@RequestMapping("/selEditCategory")
 	public ModelAndView showCategoryEdit(Map<String, Object> map)
 	{
@@ -48,7 +48,7 @@ public class CategoryController {
 		return mv;
 	}
 	
-	@Transactional
+	//@Transactional
 	@RequestMapping("/findCategory")
 	public ModelAndView findCategory(@RequestParam("catid") int catid, Map<String, Object> map)
 	{
@@ -58,7 +58,7 @@ public class CategoryController {
 		return mv;
 	}
 	
-	@Transactional
+//	@Transactional
 	@RequestMapping(value="/EditCategory",  method = RequestMethod.POST)
 	public ModelAndView editCategoryFunction(@ModelAttribute Category category)
 	{
@@ -70,7 +70,7 @@ public class CategoryController {
 	}
 	
 	
-	@Transactional
+	//@Transactional
 	@RequestMapping("/selDeleteCategory")
 	public ModelAndView deleteCategoryFunction(Map<String, Object> map)
 	{	List<Category> catList=categoryDAO.getAllCategory();
@@ -79,7 +79,7 @@ public class CategoryController {
 		return mv;
 	}
 	
-	@Transactional
+	//@Transactional
 	@RequestMapping("/DeleteCategory")
 	public ModelAndView deleteCategory(@RequestParam("catid") int catid)
 	{

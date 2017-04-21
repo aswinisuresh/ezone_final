@@ -46,7 +46,7 @@ public class CartController {
 	private CartDAO cartDAO;
 	
 	@Transactional
-	@RequestMapping(value="/MyCart",method=RequestMethod.GET)
+	@RequestMapping(value="/MyCart")
 	public ModelAndView showMyCart()
 	{
 		ModelAndView mv = new ModelAndView("/MyCart");
@@ -61,7 +61,7 @@ public class CartController {
 	}
 	
 	@Transactional
-	@RequestMapping(value="/validate_add_cart",method=RequestMethod.GET)
+	@RequestMapping(value="/validate_add_cart")
 	public ModelAndView validateAddToCart(@RequestParam("prodname")String prodname,@ModelAttribute MyCart myCart)
 	{
 		ModelAndView mv;
@@ -91,7 +91,7 @@ public class CartController {
 	}
 	
 	@Transactional
-	@RequestMapping(value="increasequantity/{id}",method=RequestMethod.GET)
+	@RequestMapping(value="increasequantity/{id}")
 	public ModelAndView validateEditCartAdd(@PathVariable("id")int id,@ModelAttribute MyCart myCart)
 	{
 		ModelAndView mv = new ModelAndView("redirect:/MyCart");
@@ -105,7 +105,7 @@ public class CartController {
 	}
 	
 	@Transactional
-	@RequestMapping(value="decreasequantity/{id}",method=RequestMethod.GET)
+	@RequestMapping(value="decreasequantity/{id}")
 	public ModelAndView validateEditCartLess(@PathVariable("id")int id,@ModelAttribute MyCart myCart)
 	{
 		ModelAndView mv = new ModelAndView("redirect:/MyCart");
@@ -126,7 +126,7 @@ public class CartController {
 	}
 	
 	@Transactional
-	@RequestMapping(value="/deletecart",method=RequestMethod.GET)
+	@RequestMapping(value="/deletecart")
 	public ModelAndView validateDeleteCart(@RequestParam("id")int id)
 	{
 		ModelAndView mv = new ModelAndView("redirect:/MyCart");

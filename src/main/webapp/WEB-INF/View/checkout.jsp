@@ -15,27 +15,27 @@
 <div class="wrapper">
 
 
-  <form:form  action="finalcheckout" method="post" commandname="Checkout">
+  <form:form  action="./finalcheckout" method="post" commandName="ckout">
   
     <div class="form-group">
     
       <label>NAME:</label>
-      <form:input type="text" class="form-control" id="name" path="name" placeholder="Enter Name"/><br><br>
+      <form:input path="name" placeholder="Enter Name" class="form-control" /><br><br>
      
       <label>CONTACT NO:</label>
-      <form:input type="number" class="form-control" id="contact" path="contact" placeholder="Enter your contactno"/><br><br>
+      <form:input path="contact" placeholder="Enter your contactno" class="form-control" /><br><br>
      
       <label>ADDRESS:</label>
-      <form:textarea type="text" class="form-control" id="address" path="address" placeholder="Enter your Address" rows="8" ></form:textarea>
+      <form:textarea path="address" placeholder="Enter your Address" rows="8"class="form-control" / ></form:textarea>
       
       <label>STATE:</label>
-      <form:input type="text" class="form-control" id="state" path="state" placeholder="Enter your state name"/><br><br>
+      <form:input path="state" placeholder="Enter your state name" class="form-control" /><br><br>
      
      <label>CITY:</label>
-      <form:input type="text" class="form-control" id="city" path="city" placeholder="Enter your city name "/><br><br>
+      <form:input path="city" placeholder="Enter your city name " class="form-control" /><br><br>
      
      <label>PINCODE:</label>
-      <form:input type="number" class="form-control" id="pincode" path="pincode" placeholder="Enter your pincode"/><br><br>
+      <form:input path="pincode" placeholder="Enter your pincode" class="form-control" /><br><br>
      
       <br><br><center><button type="submit" class="btn btn-success">SUBMIT</button></center>
       </div>

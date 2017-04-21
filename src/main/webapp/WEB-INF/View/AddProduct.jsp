@@ -63,7 +63,7 @@ function validateForm()
   
   	<%-- <form:form action="validateAddProduct" method ="post"> --%>
   	  	
-  	<form:form name="frm" action="validateAddProduct" modelattribute="Product" enctype="multipart/form-data" onSubmit="return validateForm()">
+  	<form:form name="frm" action="validateAddProduct" modelattribute="Product" enctype="multipart/form-data" onSubmit="return validateForm()" method="post">
   	 
   	<div class="col-xs-6">
     <div class="input-group">

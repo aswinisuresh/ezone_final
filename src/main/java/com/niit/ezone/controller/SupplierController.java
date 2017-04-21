@@ -18,7 +18,7 @@ public class SupplierController {
 	@Autowired
 	private SupplierDAO supplierDAO;
 	
-	@Transactional
+	//@Transactional
 	@RequestMapping("/selAddSupplier")
 	public ModelAndView clickedAddSupplier()
 	{
@@ -26,7 +26,7 @@ public class SupplierController {
 		return mv;
 	}
 	
-	@Transactional
+	//@Transactional
 	@RequestMapping(value="/validateAddSupplier",method=RequestMethod.POST)
 	public ModelAndView showAddSupplierPage(@ModelAttribute Supplier supplier)
 	{	
@@ -37,7 +37,7 @@ public class SupplierController {
 		return mv;
 	}
 	
-	@Transactional
+	//@Transactional
 	@RequestMapping("/selEditSupplier")
 	public ModelAndView showSupplierEdit(Map<String, Object> map)
 	{
@@ -47,7 +47,7 @@ public class SupplierController {
 		return mv;
 	}
 	
-	@Transactional
+	//@Transactional
 	@RequestMapping("/findSupplier")
 	public ModelAndView findCategory(@RequestParam("suppid") int suppid, Map<String, Object> map)
 	{
@@ -57,7 +57,7 @@ public class SupplierController {
 		return mv;
 	}
 	
-	@Transactional
+	//@Transactional
 	@RequestMapping(value="/EditSupplier",  method = RequestMethod.POST)
 	public ModelAndView editSupplierFunction(@ModelAttribute Supplier supplier)
 	{
@@ -69,7 +69,7 @@ public class SupplierController {
 	}
 	
 
-	@Transactional
+	//@Transactional
 	@RequestMapping("/selDeleteSupplier")
 	public ModelAndView deleteSupplierFunction(Map<String, Object> map)
 	{	List<Supplier> suppList=supplierDAO.getAllSupplier();
@@ -78,7 +78,7 @@ public class SupplierController {
 		return mv;
 	}
 	
-	@Transactional
+	//@Transactional
 	@RequestMapping("/DeleteSupplier")
 	public ModelAndView deleteSupplier(@RequestParam("suppid") int suppid)
 	{

@@ -63,7 +63,7 @@ public class ProductDAOImpl implements ProductDAO {
 		}
 		return false;
 	}*/
-
+	@Transactional
 	public boolean updateProduct(Product product) {
 		try {
 			sessionFactory.getCurrentSession().update(product);
@@ -73,7 +73,7 @@ public class ProductDAOImpl implements ProductDAO {
 		}
 		return false;
 	}
-
+	@Transactional
 	public boolean deleteProduct(int prodid) {
 		try {
 			sessionFactory.getCurrentSession().delete(getProductByID(prodid));
@@ -82,7 +82,7 @@ public class ProductDAOImpl implements ProductDAO {
 		}
 		return false;
 	}
-
+	@Transactional
 	public boolean deleteProduct(Product product) {
 		try {
 			sessionFactory.getCurrentSession().delete(product);
@@ -91,12 +91,12 @@ public class ProductDAOImpl implements ProductDAO {
 		}
 		return false;
 	}
-
+	@Transactional
 	public Product getProductByID(int prodid) {
 	return  (Product) sessionFactory.getCurrentSession().createQuery("from Product where prodid = '"+prodid + "'").uniqueResult();
 		
 	}
-
+	@Transactional
 	public Product getProductByName(String prodname) {
 		return  (Product) sessionFactory.getCurrentSession().createQuery("from Product where prodname = '"+prodname + "'").list().get(0);
 	}

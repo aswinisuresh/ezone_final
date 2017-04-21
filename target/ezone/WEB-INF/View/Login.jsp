@@ -4,7 +4,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<!-- <link rel="stylesheet" type="text/css" href="Main.css" media="screen" /> -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
@@ -18,7 +17,7 @@
 </head>
 <body>
  <script type="text/javascript" src="js/valid.js"></script>
-<form action="validatelogin" name="Login" >
+<form action="validatelogin" name="Login" method="post">
  <center>${compareT}</center>
 <center>${compareF}</center>
 

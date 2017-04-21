@@ -40,7 +40,7 @@ public class ProductController {
 		return mv;
 	}
 	
-@Transactional
+//@Transactional
 	@RequestMapping(name="/validateAddProduct",method=RequestMethod.POST)
 	public ModelAndView addProductFunction(@ModelAttribute Product product,HttpServletRequest request)
 	{
@@ -81,7 +81,7 @@ public class ProductController {
 		return mv;
 	}
 	
-	@Transactional
+//	@Transactional
 	@RequestMapping("/selEditProduct")
 	public ModelAndView showProductEdit(Map<String, Object> map)
 	{
@@ -91,7 +91,7 @@ public class ProductController {
 		return mv;
 	}
 	
-	@Transactional
+//	@Transactional
 	@RequestMapping("/findProduct")
 	public ModelAndView findProduct(@RequestParam("prodid") int prodid, Map<String, Object> map)
 	{
@@ -101,7 +101,7 @@ public class ProductController {
 		return mv;
 	}
 	
-	@Transactional
+	//@Transactional
 	@RequestMapping(value="/EditProduct",  method = RequestMethod.POST)
 	public ModelAndView editProductFunction(@ModelAttribute Product product)
 	{
@@ -112,7 +112,7 @@ public class ProductController {
 		return mv;
 	}
 	
-	@Transactional
+	//@Transactional
 	@RequestMapping("/selDeleteProduct")
 	public ModelAndView showProductDelete(Map<String, Object> map)
 	{
@@ -124,7 +124,7 @@ public class ProductController {
 	
 	
 		
-	@Transactional
+	//@Transactional
 	@RequestMapping("/deleteProduct")
 	public ModelAndView deleteProduct(@RequestParam("prodid") int prodid)
 	{
